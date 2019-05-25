@@ -6,9 +6,11 @@
     <%= link_to t.name, tag_path(id: t.id),
         class: 'tag_name', id: "tag#{t.id}"%>
     </li>
-    <div class="button">
-      <%= link_to "Delete", tag_path(t.id), method: :delete, data: {confirm: "Are you sure you would like to delete this tag?"} %>
-    </div>
+    <% if logged_in? %>
+      <div class="button">
+        <%= link_to "Delete", tag_path(t.id), method: :delete, data: {confirm: "Are you sure you would like to delete this tag?"} %>
+      </div>
+    <% end %>
   <% end %>
 </ul>
 
